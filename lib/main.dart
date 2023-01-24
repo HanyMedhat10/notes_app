@@ -14,6 +14,7 @@ const NotesApp({ Key? key }) : super(key: key);
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.dark,
+        fontFamily: 'Poppins',
       ),
       home: const NotesView(),
 
