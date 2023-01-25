@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:notes_app/constsants.dart';
 import 'package:notes_app/views/notes_view.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox(kNotesBox);
   runApp(const NotesApp());
 }
 
 class NotesApp extends StatelessWidget {
-const NotesApp({ Key? key }) : super(key: key);
+  const NotesApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -17,7 +21,6 @@ const NotesApp({ Key? key }) : super(key: key);
         fontFamily: 'Poppins',
       ),
       home: const NotesView(),
-
     );
   }
 }
