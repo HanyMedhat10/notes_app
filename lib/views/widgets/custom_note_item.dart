@@ -38,7 +38,7 @@ class CustomNoteItem extends StatelessWidget {
                   style: TextStyle(color: Colors.black, fontSize: 26),
                 ),
                 subtitle: Padding(
-                  padding: const EdgeInsets.only(top: 16),
+                  padding: const EdgeInsets.symmetric(vertical: 16),
                   child: Text(
                     note.subTitle,
                     style: TextStyle(
