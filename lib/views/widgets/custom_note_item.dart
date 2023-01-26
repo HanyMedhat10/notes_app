@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notes_app/models/note_models.dart';
 import 'package:notes_app/views/edit_note_view.dart';
 
 class CustomNoteItem extends StatelessWidget {
-  const CustomNoteItem({Key? key}) : super(key: key);
-
+  const CustomNoteItem({Key? key, required this.note}) : super(key: key);
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -23,21 +24,21 @@ class CustomNoteItem extends StatelessWidget {
             bottom: 24,
           ),
           decoration: BoxDecoration(
-            color: const Color(0xffffcc80),
+            color: Color(note.color),
             borderRadius: BorderRadius.circular(16),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               ListTile(
-                title: const Text(
-                  'Flutter Tips',
+                title:  Text(
+                  note.title,
                   style: TextStyle(color: Colors.black, fontSize: 26),
                 ),
                 subtitle: Padding(
                   padding: const EdgeInsets.only(top: 16),
                   child: Text(
-                    'Build your career with tharwat samy',
+                    note.subTitle,
                     style: TextStyle(
                       color: Colors.black.withOpacity(.5),
                       fontSize: 18,
@@ -46,7 +47,7 @@ class CustomNoteItem extends StatelessWidget {
                 ),
                 trailing: IconButton(
                   onPressed: () {},
-                  icon:const  Icon(
+                  icon: const Icon(
                     FontAwesomeIcons.trash,
                     color: Colors.black,
                     size: 24,
@@ -58,7 +59,7 @@ class CustomNoteItem extends StatelessWidget {
                   right: 24,
                 ),
                 child: Text(
-                  'May21 , 2022',
+                  note.date,
                   style: TextStyle(
                     color: Colors.black.withOpacity(.4),
                     fontSize: 16,
